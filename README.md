@@ -17,3 +17,4 @@ Acesse em: http://127.0.0.1:5000
 ## Importante
 - A chave da OpenAI está embutida em `app.py` **apenas para testes locais**.
 - NÃO suba esse arquivo público. Em produção, use variáveis de ambiente.
+"# mangara-ia" 
