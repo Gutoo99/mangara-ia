@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Passos do fluxo guiado (opção 1)
   const steps = [
-    { key: 'local',    question: 'Você vai plantar em **vaso**, **canteiro/jardim** ou **horta elevada**?' },
-    { key: 'categoria',question: 'Você quer plantar: **1) Ornamental**, **2) Flor**, **3) Fruta**, **4) Hortaliça/legume**, **5) Ervas/temperos**? (responda com o número)' },
-    { key: 'regiao',   question: 'Qual sua **cidade/estado** ou **temperatura média** da região?' },
-    { key: 'sol',      question: 'A luminosidade do local é **sol pleno**, **meia-sombra** ou **sombra**?' },
-    { key: 'solo',     question: 'Qual o **tipo de solo**? (arenoso, argiloso, argilo-arenoso, rico em matéria orgânica, drenagem boa/ruim)' },
-    { key: 'espaco',   question: 'Qual o **tamanho do espaço** e **altura máxima desejada** da planta? (pequeno/médio/grande, altura em m)' },
-    { key: 'agua',     question: 'Qual a **frequência de rega** possível? (**diária**, **2-3x/semana**, **pouca**)' }
+    { key: 'local',    question: 'Você vai plantar em vaso, canteiro/jardim ou horta elevada?' },
+    { key: 'categoria',question: 'Você quer plantar: 1) Ornamental, 2) Flor, 3) Fruta, 4) Hortaliça/legume, 5) Ervas/temperos? (responda com o número)' },
+    { key: 'regiao',   question: 'Qual sua cidade/estado ou temperatura média da região?' },
+    { key: 'sol',      question: 'A luminosidade do local é sol pleno, meia-sombra ou sombra?' },
+    { key: 'solo',     question: 'Qual o tipo de solo? (arenoso, argiloso, argilo-arenoso, rico em matéria orgânica, drenagem boa/ruim)' },
+    { key: 'espaco',   question: 'Qual o tamanho do espaço e altura máxima desejada da planta? (pequeno/médio/grande, altura em m)' },
+    { key: 'agua',     question: 'Qual a frequência de rega possível? (diária, 2-3x/semana, pouca)' }
   ];
 
   function showMenu(greeting = '') {
@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
     addMsg(
       'bot',
       `${hello}Sou a Mangará IA 🌿\n` +
-      `Se sua dúvida for sobre **qual tipo de planta escolher para plantar**, digite **1**.\n` +
-      `Se sua dúvida for sobre **outro assunto**, digite **2** e escreva sua pergunta.`
+      `Se sua dúvida for sobre qual tipo de planta escolher para plantar, digite 1.\n` +
+      `Se sua dúvida for sobre outro assunto, digite 2 e escreva sua pergunta.`
     );
   }
 
@@ -133,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
 • Frequência de rega possível: ${a.agua || 'não informado'}
 
 Responda em português do Brasil e siga ESTE FORMATO:
-1) Liste **3–5 espécies** adequadas, em **tabela Markdown** com colunas:
+1) Liste 3–5 espécies adequadas, em tabela Markdown com colunas:
    | Espécie (comum/científico) | Motivo da indicação | Porte | Luz | Rega | Dificuldade | Observações |
-2) Em seguida, dê **5 dicas práticas** de cultivo para este cenário específico.
-3) Se os dados forem insuficientes, faça **1 pergunta objetiva** de esclarecimento antes da lista.`;
+2) Em seguida, dê 5 dicas práticas de cultivo para este cenário específico.
+3) Se os dados forem insuficientes, faça 1 pergunta objetiva de esclarecimento antes da lista.`;
 
       askAI(finalPrompt);
 
@@ -186,7 +186,7 @@ Responda em português do Brasil e siga ESTE FORMATO:
         addMsg('bot', 'Certo! Envie sua pergunta que eu respondo. 😊');
         return;
       }
-      addMsg('bot', 'Não entendi. Digite **1** para recomendações de plantio ou **2** para outro assunto.');
+      addMsg('bot', 'Não entendi. Digite 1 para recomendações de plantio ou 2 para outro assunto.');
       return;
     }
 
