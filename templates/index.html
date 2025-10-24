@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Início - Mangará{% endblock %}
+{% block content %}
+<section class="hero-section" style="background: linear-gradient(135deg, rgba(26,77,46,0.85) 0%, rgba(45,107,62,0.85) 100%), url('{{ url_for('static', filename='cabecalho.jpg') }}') center/cover;">
+  <div class="hero-content">
+    <h1 class="hero-title">Cultivando <span class="destaque">Conhecimento<br>Agroecológico</span></h1>
+    <p class="hero-subtitle">Plataforma digital do Mangará - IFSP São Miguel Paulista. Conectando comunidade, educação e sustentabilidade.</p>
+    <div class="hero-buttons">
+      <a href="{{ url_for('herbario') }}" class="btn btn-primary">Explorar Herbário</a>
+      <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="sobre">
+  <div class="container">
+    <h2>Sobre o Mangará</h2>
+    <div class="sobre-content">
+      <div class="sobre-text">
+        <p>O Mangará é um projeto de extensão do IFSP São Miguel Paulista que conecta conhecimento científico, educação ambiental e desenvolvimento sustentável.</p>
+        <p>Nosso núcleo agroecológico trabalha na preservação e catalogação de espécies vegetais, promovendo a educação ambiental e a agricultura sustentável na região.</p>
+      </div>
+      <div class="sobre-imagem"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

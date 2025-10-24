@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Herbário - Mangará{% endblock %}
+{% block content %}
+<div class="container">
+  <h1 class="page-title">🌿 Herbário Digital</h1>
+  <p class="page-subtitle">Conheça as plantas cultivadas pelo Mangará - Núcleo Agroecológico</p>
+
+  <div class="filtros-herbario">
+    <select id="filtroTipo" class="filtro-select">
+      <option value="">Todos os tipos</option>
+      <option value="1">Hortaliça</option>
+      <option value="2">Fruta</option>
+      <option value="3">Erva</option>
+      <option value="4">Medicinal</option>
+      <option value="5">Ornamental</option>
+    </select>
+    <select id="filtroUtilidade" class="filtro-select">
+      <option value="">Todas as utilidades</option>
+      <option value="1">Alimentar</option>
+      <option value="2">Medicinal</option>
+      <option value="3">Ornamental</option>
+    </select>
+    <input type="text" id="buscarPlanta" class="busca-input" placeholder="🔍 Buscar por nome científico...">
+  </div>
+
+  <div class="plantas-grid" id="plantasGrid"></div>
+
+  <div class="info-herbario">
+    <p>💚 Total de plantas catalogadas: <strong id="totalPlantas">0</strong></p>
+    <p>🌱 Demonstrando a diversidade e cuidado com o meio ambiente e a comunidade local</p>
+  </div>
+</div>
+{% endblock %}
