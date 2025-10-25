@@ -1,4 +1,4 @@
-// ====== MANGARÁ IA — SCRIPT PRINCIPAL ======
+// ====== MANGARÁ IA — SCRIPT PRINCIPAL (fluxo guiado corrigido) ======
 
 // Menu mobile (se existir no layout)
 function toggleMenu() {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addMsg('bot', steps[state.step].question);
   }
 
-  function nextStep() {
+  async function nextStep() {
     state.step++;
     if (state.step < steps.length) {
       addMsg('bot', steps[state.step].question);
@@ -132,24 +132,27 @@ document.addEventListener('DOMContentLoaded', () => {
 • Espaço/porte desejado: ${a.espaco || 'não informado'}
 • Frequência de rega possível: ${a.agua || 'não informado'}
 
-Responda em português do Brasil e siga ESTE FORMATO:
+INSTRUÇÕES IMPORTANTES:
+- NÃO faça perguntas de esclarecimento. Se faltar algum dado, faça suposições conservadoras típicas do Brasil Sudeste (ex.: clima subtropical/temperado ameno) e prossiga.
+- Entregue recomendações mesmo com informações incompletas.
+- Priorize espécies adaptadas ao cenário informado.
+
+FORMATO DA RESPOSTA:
 1) Liste 3–5 espécies adequadas, em tabela Markdown com colunas:
    | Espécie (comum/científico) | Motivo da indicação | Porte | Luz | Rega | Dificuldade | Observações |
-2) Em seguida, dê 5 dicas práticas de cultivo para este cenário específico.
-3) Se os dados forem insuficientes, faça 1 pergunta objetiva de esclarecimento antes da lista.`;
+2) Em seguida, dê 5 dicas práticas de cultivo para este cenário específico.`;
 
-      askAI(finalPrompt);
-
-      // Ao terminar, volta ao menu para novas consultas
+      // Aguarda a resposta da IA e só depois volta ao menu
+      await askAI(finalPrompt);
       state.mode = 'menu';
       state.firstContact = true;
     }
   }
 
-  function handleGuidedAnswer(text) {
+  async function handleGuidedAnswer(text) {
     const current = steps[state.step];
     state.answers[current.key] = text;
-    nextStep();
+    await nextStep();
   }
 
   function isGreeting(t) {
@@ -157,8 +160,8 @@ Responda em português do Brasil e siga ESTE FORMATO:
     return /^(oi|ola|eai|bom dia|boa tarde|boa noite)\b/.test(s);
   }
 
-  // Handler do formulário
-  form.addEventListener('submit', (e) => {
+  // Handler do formulário (async para aguardar a IA quando necessário)
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const raw = (input.value || '').trim();
     if (!raw) return;
@@ -177,28 +180,21 @@ Responda em português do Brasil e siga ESTE FORMATO:
 
     // Menu
     if (state.mode === 'menu') {
-      if (raw === '1') {
-        startGuided();
-        return;
-      }
-      if (raw === '2') {
-        state.mode = 'free';
-        addMsg('bot', 'Certo! Envie sua pergunta que eu respondo. 😊');
-        return;
-      }
+      if (raw === '1') { startGuided(); return; }
+      if (raw === '2') { state.mode = 'free'; addMsg('bot', 'Certo! Envie sua pergunta que eu respondo. 😊'); return; }
       addMsg('bot', 'Não entendi. Digite 1 para recomendações de plantio ou 2 para outro assunto.');
       return;
     }
 
     // Guiado (1)
     if (state.mode === 'guided') {
-      handleGuidedAnswer(raw);
+      await handleGuidedAnswer(raw);
       return;
     }
 
     // Livre (2)
     if (state.mode === 'free') {
-      askAI(raw);
+      await askAI(raw);
       return;
     }
   });
