@@ -1,4 +1,3 @@
-# app.py
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 import os
@@ -7,7 +6,7 @@ import requests
 app = Flask(__name__, static_folder="static", template_folder="templates")
 CORS(app)  # se quiser limitar origens: CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# ===== OpenAI por variável de ambiente (Render/local .env) =====
+# OpenAI por variável de ambiente (Render/local .env) 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
@@ -45,9 +44,7 @@ def login_adm():
 def painel_adm():
     return render_template("paineladm.html")
 
-# =========================
 # API de Chat IA
-# =========================
 @app.post("/api/ai")
 def api_ai():
     if not OPENAI_API_KEY:
@@ -85,7 +82,7 @@ def api_ai():
         return jsonify({"error": f"Falha ao consultar IA: {e}"}), 500
 
 
-# Render / produção: o Gunicorn usa "app:app"
+# Render usa "app:app"
 # Local: python app.py
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", "5000")), debug=False)
