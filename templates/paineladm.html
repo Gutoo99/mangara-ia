@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Administração - Mangará{% endblock %}
+{% block content %}
+<div class="admin-header">
+  <h1>🛠️ Painel de Administração</h1>
+  <button class="btn-logout" onclick="logout()">Sair</button>
+</div>
+
+<div class="admin-tabs">
+  <button class="tab-btn active" onclick="showTab('noticias')">Gerenciar Notícias</button>
+  <button class="tab-btn" onclick="showTab('herbario')">Gerenciar Herbário</button>
+</div>
+
+<div id="noticias-tab" class="tab-content active">
+  <div class="admin-section">
+    <h2>➕ Adicionar Nova Notícia</h2>
+    <form class="admin-form">
+      <div class="form-group"><label for="tituloNoticia">Título:</label><input type="text" id="tituloNoticia" placeholder="Título da notícia" required></div>
+      <div class="form-group"><label for="dataNoticia">Data:</label><input type="date" id="dataNoticia" required></div>
+      <div class="form-group"><label for="imagemNoticia">Imagem:</label><input type="file" id="imagemNoticia" accept="image/*"></div>
+      <div class="form-group"><label for="conteudoNoticia">Conteúdo:</label><textarea id="conteudoNoticia" rows="6" placeholder="Escreva o conteúdo da notícia..." required></textarea></div>
+      <button type="submit" class="btn-primary">Publicar Notícia</button>
+    </form>
+  </div>
+  <div class="admin-section">
+    <h2>📋 Notícias Publicadas</h2>
+    <div class="admin-list">
+      <div class="admin-item">
+        <span>📰 Nova espécie de orquídea descoberta - <em>15 Set 2025</em></span>
+        <div class="admin-actions">
+          <button class="btn-edit" onclick="editarItem(this)">✏️ Editar</button>
+          <button class="btn-delete" onclick="excluirItem(this)">🗑️ Excluir</button>
+        </div>
+      </div>
+      <div class="admin-item">
+        <span>📰 Projeto de reflorestamento - <em>10 Set 2025</em></span>
+        <div class="admin-actions">
+          <button class="btn-edit" onclick="editarItem(this)">✏️ Editar</button>
+          <button class="btn-delete" onclick="excluirItem(this)">🗑️ Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="herbario-tab" class="tab-content">
+  <div class="admin-section">
+    <h2>🌱 Adicionar Nova Planta</h2>
+    <form class="admin-form" id="formPlanta">
+      <div class="form-group"><label for="nomeComum">Nome Comum:</label><input type="text" id="nomeComum" required></div>
+      <div class="form-group"><label for="nomeCientifico">Nome Científico:</label><input type="text" id="nomeCientifico" required></div>
+      <div class="form-group"><label for="apelido">Apelido (Identificação):</label><input type="text" id="apelido"></div>
+      <div class="form-group"><label for="tipoPlanta">Tipo:</label>
+        <select id="tipoPlanta" required>
+          <option value="">Selecione o tipo</option>
+          <option value="hortalica">Hortaliça</option>
+          <option value="fruta">Fruta</option>
+          <option value="erva">Erva</option>
+          <option value="medicinal">Medicinal</option>
+          <option value="ornamental">Ornamental</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="utilidade">Utilidade:</label>
+        <select id="utilidade" required>
+          <option value="">Selecione a utilidade</option>
+          <option value="alimentar">Alimentar</option>
+          <option value="medicinal">Medicinal</option>
+          <option value="ornamental">Ornamental</option>
+          <option value="alimentar/medicinal">Alimentar/Medicinal</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="tamanho">Tamanho (metros):</label><input type="text" id="tamanho" required></div>
+      <div class="form-group"><label for="sol">Exposição Solar:</label><input type="text" id="sol" required></div>
+      <div class="form-group"><label for="colheita">Tempo de Colheita:</label><input type="text" id="colheita" required></div>
+      <div class="form-group"><label for="cultivo">Tipo de Cultivo:</label><input type="text" id="cultivo" required></div>
+      <div class="form-group"><label for="clima">Clima Ideal:</label><input type="text" id="clima" required></div>
+      <div class="form-group"><label for="imagemPlanta">Imagem da Planta:</label><input type="file" id="imagemPlanta" accept="image/*"></div>
+      <div class="form-group"><label for="emoji">Emoji Representativo:</label><input type="text" id="emoji" placeholder="Ex: 🥬" maxlength="2"></div>
+      <button type="submit" class="btn-primary">Cadastrar Planta</button>
+    </form>
+  </div>
+  <div class="admin-section">
+    <h2>🌿 Plantas Cadastradas</h2>
+    <div class="admin-list">
+      <div class="admin-item">
+        <span>🥬 Alface Crespa (<em>Lactuca sativa</em>) - Hortaliça</span>
+        <div class="admin-actions">
+          <button class="btn-edit" onclick="editarItem(this)">✏️ Editar</button>
+          <button class="btn-delete" onclick="excluirItem(this)">🗑️ Excluir</button>
+        </div>
+      </div>
+      <div class="admin-item">
+        <span>🌿 Manjericão (<em>Ocimum basilicum</em>) - Erva</span>
+        <div class="admin-actions">
+          <button class="btn-edit" onclick="editarItem(this)">✏️ Editar</button>
+          <button class="btn-delete" onclick="excluirItem(this)">🗑️ Excluir</button>
+        </div>
+      </div>
+      <div class="admin-item">
+        <span>🍅 Tomate Cereja (<em>Solanum lycopersicum</em>) - Fruta</span>
+        <div class="admin-actions">
+          <button class="btn-edit" onclick="editarItem(this)">✏️ Editar</button>
+          <button class="btn-delete" onclick="excluirItem(this)">🗑️ Excluir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,1208 @@
+/* ========== RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #2d3e2d;
+    line-height: 1.6;
+}
+
+/* ========== HEADER (SUA PARTE) ========== */
+header {
+    background-color: #1a4d2e;
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ========== NAVEGAÇÃO (SUA PARTE) ========== */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(200, 227, 87, 0.2);
+}
+
+nav ul li a.active {
+    background-color: #c8e357;
+    color: #1a4d2e;
+    font-weight: 600;
+}
+
+/* Menu Mobile (SUA PARTE) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ========== MAIN ========== */
+main {
+    min-height: calc(100vh - 200px);
+}
+
+/* ========== HERO SECTION (PÁGINA INICIAL) ========== */
+.hero-section {
+    background: linear-gradient(135deg, rgba(26, 77, 46, 0.95) 0%, rgba(45, 107, 62, 0.95) 100%),
+                url('cabecalho.jpg') center/cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.destaque {
+    color: #c8e357;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ========== FOOTER (SUA PARTE) ========== */
+footer {
+    background-color: #1a4d2e;
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-info h3,
+.footer-contato h4,
+.footer-social h4 {
+    color: #c8e357;
+    margin-bottom: 1rem;
+}
+
+.footer-info p,
+.footer-contato p {
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+.social-links a {
+    color: #c8e357;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(200, 227, 87, 0.3);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* ========== RESPONSIVIDADE (SUA PARTE) ========== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        order: 3;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav ul.active {
+        max-height: 500px;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* ========== PÁGINAS DE CONTEÚDO ========== */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    color: #1a4d2e;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.page-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* ========== HERBÁRIO ========== */
+.filtros-herbario {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filtro-select,
+.busca-input {
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: white;
+    transition: border-color 0.3s ease;
+}
+
+.filtro-select {
+    flex: 1;
+    min-width: 200px;
+}
+
+.busca-input {
+    flex: 2;
+    min-width: 250px;
+}
+
+.filtro-select:focus,
+.busca-input:focus {
+    outline: none;
+    border-color: #1a4d2e;
+}
+
+.plantas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.planta-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+.planta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.planta-apelido {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+}
+
+.planta-tipo {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.badge-hortalica {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.badge-fruta {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-erva {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.badge-medicinal {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.badge-ornamental {
+    background-color: #e2d6f3;
+    color: #6f42c1;
+}
+
+.planta-imagem-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.planta-imagem {
+    font-size: 5rem;
+    line-height: 1;
+}
+
+.planta-nome-comum {
+    color: #1a4d2e;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+.planta-nome-cientifico {
+    font-style: italic;
+    color: #666;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.planta-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.info-value {
+    font-size: 0.9rem;
+    color: #1a4d2e;
+    font-weight: 500;
+}
+
+.btn-detalhes {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #c8e357;
+    color: #1a4d2e;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-detalhes:hover {
+    background-color: #b5d045;
+    transform: scale(1.02);
+}
+
+.info-herbario {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.info-herbario p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.info-herbario strong {
+    color: #c8e357;
+}
+/* Container padrão para conteúdo */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Botões padrão */
+.btn {
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #c8e357;
+    color: #1a4d2e;
+}
+
+.btn-primary:hover {
+    background-color: #b5d045;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========== CHATBOT IA (BOTÃO FLUTUANTE) ========== */
+.chatbot-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #c8e357 0%, #a8c940 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+    border: 3px solid white;
+}
+
+.chatbot-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(200, 227, 87, 0.5);
+}
+
+.chatbot-icon {
+    font-size: 2.5rem;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* ========== STATUS DE USUÁRIO LOGADO NO MENU ========== */
+
+/* Garantir que o item de status fique alinhado com os outros links */
+nav ul {
+    align-items: center !important;
+}
+
+#userStatus {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    margin: 0;
+}
+
+.user-menu:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.user-info strong {
+    color: #c8e357;
+}
+
+.admin-badge-small {
+    background-color: #c8e357;
+    color: #1a4d2e;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.btn-logout-small {
+    padding: 0.6rem 1rem;
+    background-color: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-logout-small:hover {
+    background-color: #dc3545;
+    transform: scale(1.05);
+}
+
+/* Responsividade para menu de usuário */
+@media (max-width: 768px) {
+    .user-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .btn-logout-small {
+        width: 100%;
+    }
+    
+    #userStatus {
+        width: 100%;
+    }
+}
+
+/* ========== LOGIN & ADMINISTRAÇÃO ========== */
+
+/* Container de Login */
+.login-container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(26, 77, 46, 0.05) 0%, rgba(45, 107, 62, 0.05) 100%);
+}
+
+.login-box {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    width: 100%;
+    position: relative;
+}
+
+.login-box h1 {
+    color: #1a4d2e;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}
+
+/* Badge Admin */
+.admin-badge {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Formulário */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #1a4d2e;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 0.9rem;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #1a4d2e;
+    box-shadow: 0 0 0 3px rgba(26, 77, 46, 0.1);
+}
+
+.form-group input[type="file"] {
+    padding: 0.6rem;
+}
+
+/* Botão de Login */
+.btn-login {
+    padding: 1rem;
+    background-color: #c8e357;
+    color: #1a4d2e;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-login:hover {
+    background-color: #b5d045;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(200, 227, 87, 0.4);
+}
+
+.btn-admin {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%);
+    color: white;
+}
+
+.btn-admin:hover {
+    background: linear-gradient(135deg, #0f3d1e 0%, #1d5b2e 100%);
+}
+
+/* Links secundários */
+.login-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.link-secundario {
+    color: #1a4d2e;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.link-secundario:hover {
+    color: #c8e357;
+    text-decoration: underline;
+}
+
+/* Divisor */
+.divisor {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.divisor::before,
+.divisor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.divisor::before {
+    left: 0;
+}
+
+.divisor::after {
+    right: 0;
+}
+
+.divisor span {
+    background-color: white;
+    padding: 0 1rem;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Botão Admin Login */
+.btn-admin-login {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-admin-login:hover {
+    background: linear-gradient(135deg, #0f3d1e 0%, #1d5b2e 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(26, 77, 46, 0.4);
+}
+
+/* Info Box */
+.form-info {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #c8e357;
+    font-size: 0.9rem;
+}
+
+.form-info p {
+    margin: 0.3rem 0;
+    color: #555;
+}
+
+.form-info code {
+    background-color: #e9ecef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #1a4d2e;
+}
+
+/* Mensagem de Erro */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+/* ========== PAINEL ADMIN ========== */
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%);
+    color: white;
+    border-radius: 15px;
+    margin: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.btn-logout {
+    padding: 0.7rem 1.5rem;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Abas de Administração */
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    padding: 0 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    padding: 1rem 2rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #1a4d2e;
+    border-bottom-color: #c8e357;
+}
+
+.tab-btn.active {
+    color: #1a4d2e;
+    border-bottom-color: #1a4d2e;
+}
+
+/* Conteúdo das Abas */
+.tab-content {
+    display: none;
+    padding: 0 2rem 2rem;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Seções Admin */
+.admin-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.admin-section h2 {
+    color: #1a4d2e;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Formulário Admin */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Lista Admin */
+.admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #c8e357;
+    transition: all 0.3s ease;
+}
+
+.admin-item:hover {
+    background-color: #e9ecef;
+    transform: translateX(5px);
+}
+
+.admin-item span {
+    color: #2d3e2d;
+    font-weight: 500;
+}
+
+.admin-item em {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Ações Admin */
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+/* Responsividade Login */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .admin-tabs {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .tab-btn {
+        border-bottom: none;
+        border-left: 3px solid transparent;
+    }
+
+    .tab-btn.active {
+        border-left-color: #1a4d2e;
+    }
+
+    .admin-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .admin-actions {
+        width: 100%;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        flex: 1;
+    }
+}
+/* ========== SEÇÃO DE NOTÍCIAS (PÁGINA INICIAL) ========== */
+.noticias-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #1a4d2e;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.noticia-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid #e8f5e9;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.noticia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+    border-color: #a5d6a7;
+}
+
+.noticia-imagem {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #c8e357;
+}
+
+.noticia-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia-titulo {
+    font-size: 1.2rem;
+    color: #1a4d2e;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.noticia-descricao {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1rem;
+}
+
+.noticia-link {
+    color: #1a4d2e;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.noticia-link::before {
+    content: '🌿 ';
+    margin-right: 5px;
+}
+
+.noticia-link:hover {
+    color: #c8e357;
+    transform: translateX(5px);
+}
+
+/* Card destacado */
+.noticia-card.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    border: 3px solid #c8e357;
+}
+
+.noticia-card.featured .noticia-imagem {
+    width: 40%;
+    height: auto;
+    min-height: 280px;
+}
+
+.noticia-card.featured .noticia-content {
+    width: 60%;
+    padding: 2rem;
+}
+
+.noticia-card.featured .noticia-titulo {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.noticia-card.featured .noticia-descricao {
+    font-size: 1.05rem;
+}
+
+.ver-todas-noticias {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .noticia-card.featured {
+        flex-direction: column;
+    }
+    
+    .noticia-card.featured .noticia-imagem {
+        width: 100%;
+        height: 220px;
+    }
+    
+    .noticia-card.featured .noticia-content {
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* === CHATBOT FLUTUANTE (IA) === */
+.chatbox { position: fixed; bottom: 6.5rem; right: 2rem; width: 340px; max-height: 55vh;
+  background: #ffffff; border: 2px solid #c8e357; border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15); display: flex; flex-direction: column;
+  overflow: hidden; z-index: 1000; }
+.chatbox.hidden { display: none; }
+.chatbox-header { display:flex; align-items:center; justify-content:space-between;
+  background: linear-gradient(135deg, #1a4d2e 0%, #2d6b3e 100%); color:#fff; padding:.8rem 1rem; font-weight:600; }
+.chatbox-close { background: transparent; border: none; color: #fff; font-size: 1.3rem; cursor: pointer; }
+.chatbox-messages { padding:1rem; gap:.6rem; overflow-y:auto; flex:1; display:flex; flex-direction:column; background:#f8f9fa; }
+.msg { padding:.6rem .8rem; border-radius:12px; max-width:85%; line-height:1.4; }
+.msg.user { align-self:flex-end; background:#c8e357; color:#1a4d2e; }
+.msg.bot { align-self:flex-start; background:#e9ecef; color:#2d3e2d; }
+.chatbox-input { display:flex; gap:.5rem; border-top:1px solid #eee; padding:.6rem; background:#fff; }
+.chatbox-input input { flex:1; padding:.7rem .9rem; border:2px solid #ddd; border-radius:10px; font:inherit; }
+.chatbox-send { padding:.7rem 1rem; background:#1a4d2e; color:#fff; border:none; border-radius:10px; font-weight:600; cursor:pointer; }
+@media (max-width:480px){ .chatbox{ right:1rem; width:calc(100% - 2rem); } }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Mangará{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Mangará" class="logo-img">
+        <span>Mangará</span>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <nav>
+        <ul id="menu">
+          <li><a href="{{ url_for('home') }}" class="{% if request.path=='/' %}active{% endif %}">Início</a></li>
+          <li><a href="{{ url_for('herbario') }}" class="{% if request.path.startswith('/herbario') %}active{% endif %}">Herbário</a></li>
+          <li><a href="{{ url_for('login') }}" class="{% if request.path.startswith('/login') and request.path!='/login-adm' %}active{% endif %}">Login</a></li>
+          <li><a href="{{ url_for('painel_adm') }}" id="adminLink">Administração</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-info">
+        <h3>Mangará Núcleo Agroecológico</h3>
+        <p>Projeto do Instituto Federal de São Paulo - Campus São Miguel Paulista</p>
+        <p>Desenvolvido por estudantes do campus 🎓</p>
+      </div>
+      <div class="footer-contato">
+        <h4>Contato</h4>
+        <p>📍 Rua Tenente Miguel Délia 105, São Paulo</p>
+        <p>📧 forms.gle/cE8VbSG3oMtz3gyr6</p>
+        <p>📱 Instagram: @horteires_ifsp</p>
+      </div>
+      <div class="footer-social">
+        <h4>Redes Sociais</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/horteires_ifsp/" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mangará - Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- CHATBOT BUTTON -->
+  <div class="chatbot-button" onclick="abrirChatbot()" title="Assistente Virtual">
+    <div class="chatbot-icon">🤖</div>
+  </div>
+
+  <!-- CHATBOX -->
+  <div id="chatbox" class="chatbox hidden" aria-live="polite">
+    <div class="chatbox-header">
+      <strong>🤖 Mangará IA</strong>
+      <button id="chatboxClose" class="chatbox-close" title="Fechar">×</button>
+    </div>
+    <div id="chatMessages" class="chatbox-messages">
+      <div class="msg bot">Oi! Eu sou a Mangará IA 🌱 Como posso ajudar?</div>
+    </div>
+    <form id="chatForm" class="chatbox-input">
+      <input id="chatInput" type="text" placeholder="Digite sua dúvida..." autocomplete="off" required />
+      <button type="submit" class="chatbox-send">Enviar</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
